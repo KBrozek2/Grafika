@@ -24,31 +24,22 @@ vector<bool> Conversion::stringToBits(string str)
 /*----------------------------------------*/
 string Conversion::bitsToString(vector<bool> bytes)
 {
-	cout << endl;
 
-	//vector<bool>::iterator it;
 	string str = "";
-	for (size_t i = 0; i < bytes.size(); i++)
-	{
-		if (i % 8 == 7)
-		{
-			str += bytes;
+	string output = "";
+	for (size_t i = 0; i < bytes.size(); i++) {
+		if (bytes[i]) str += "1";
+		else str += "0";
+	}
 
-	}
-	str += bytes[i];
-}
-	cout << str;
-	stringstream sstream(str);
-	string output;
-	while (sstream.good())
-	{
-		bitset<8> bits;
-		sstream >> bits;
-		char c = char(bits.to_ulong());
-		output += c;
-	}
+
+	istringstream in(str);
+	std::bitset<8> bs;
+	while (in >> bs)
+	cout << char(bs.to_ulong());
 
 	return output;
+
 }
 /*----------------------------------------*/
 char * Conversion::stringToChar(string str)
