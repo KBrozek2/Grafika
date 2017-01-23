@@ -19,7 +19,9 @@ public:
 	SDL_Color getPixel(int, int);
 	bool isMessageFittedIn(int, char *);
 	bool isBmpRightSize(char*);
+	void saveBMP(SDL_Surface *, char *);
 	void setPixel(int, int, Uint8, Uint8, Uint8);
 	Image();
 	~Image();
+
 };

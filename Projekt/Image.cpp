@@ -65,6 +65,14 @@ bool Image::isBmpRightSize(char * img_path)
 		return false;
 }
 
+void Image::saveBMP(SDL_Surface *bmp, char *path) 
+{
+	if (!SDL_SaveBMP(bmp,path)) {
+		std::cerr << "SDL_SaveBMP() Failed: " << SDL_GetError() << std::endl;
+		exit(1);
+	}
+
+}
 
 SDL_Color Image::getPixel(int x, int y)
 {

@@ -1,8 +1,8 @@
 #pragma once
 #pragma warning(disable:4996)
 #include "Image.h"
-#include "Conversions.h"
-#include "Files.h"
+#include "Conversion.h"
+#include "File.h"
 #include <bitset>
 #include <vector>
 
@@ -12,24 +12,27 @@ class Steganography
 {
 	Image imgObj;
 	Conversion converObj;
-	Files fileObj;
+	File fileObj;
 
+	const int messageSizeBMP;
 	int bitwiseMessageLength;
 	int bitwisePasswordLength;
 	vector <bool> usint;
 	vector<bool> bitwisePasswordLengthB;
 	vector<bool> bitwiseMessageLengthB;
 	vector<SDL_Color> pixelsArray;
-	vector<SDL_Color> getMessageLengthFromBMP(char*);
+
+
+	bool getTextBit(Uint8 pix, bool number2);
+	vector<SDL_Color> getMessageLengthFromBMP(char *);
+	void changePix(Uint8&, bool, bool);
+	void saveCoded(char *);
+	void makePixelsArray(char * img, int size);
 
 public:
-	void Code(vector<bool>, vector<bool>, char*);
-	void changePix(Uint8&, bool, bool);
-	void Decode(vector<bool>, char *);
-	bool getTextBit(Uint8, bool);
-	void saveCoded(char *);
-	void makePixelsArray(char *, int);
+	void code(vector<bool>, vector<bool>, char*);
+	void decode(vector<bool>, char *);
 
-	Steganography(Image &, Conversion &);
+	Steganography(Image &,Conversion &,File &);
 	~Steganography();
 };

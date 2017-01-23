@@ -122,7 +122,7 @@ char *Interface::getImage(int bMessageSize)
 {
 	string bitM = "";
 	int rep = 0;
-
+	char *g_img = nullptr;
 	//wyszukiwanie bmp w folderze
 	fileObj.filesList("*.bmp");
 	list = fileObj.returnList();
@@ -141,12 +141,12 @@ char *Interface::getImage(int bMessageSize)
 			/*jesli jest*/
 			if (list[i] == bitM)
 			{
-				char *g_img = converObj.stringToChar(bitM);
+				g_img = converObj.stringToChar(bitM);
 
-				if (bMessageSize) 
+				if (bMessageSize)
 				{
 					/*Sprawdza czy bmp ma wystarczajšco pikseli*/
-					if (!imgObj.isMessageFittedIn(bMessageSize, g_img)) 
+					if (!imgObj.isMessageFittedIn(bMessageSize, g_img))
 					{
 						cout << "Wybrany plik bmp jest za maly by pomiescic zadana wiadomosc!" << endl;
 						delete[] g_img;
@@ -159,6 +159,7 @@ char *Interface::getImage(int bMessageSize)
 						break;
 					}
 				}
+				
 				return g_img;
 			}
 		}
@@ -174,11 +175,9 @@ char *Interface::getImage(int bMessageSize)
 }
 
 //----------------------------------------
-Interface::Interface(Image &im, Files &file_, Conversion &conver) :imgObj(im), fileObj(file_), converObj(conver), g_img(nullptr)
+Interface::Interface(Image &im, File &file_, Conversion &conver) :imgObj(im), fileObj(file_), converObj(conver)
 {}
 
 //----------------------------------------
 Interface::~Interface()
-{
-	delete[] g_img;
-}
+{}
