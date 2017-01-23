@@ -4,6 +4,8 @@
 #include "File.h"
 #include "Conversion.h"
 
+ 
+
 void choice_1(Interface &inter, Image &im, Steganography &steg, Conversion &conver)
 {
 	string message = inter.getMessage();

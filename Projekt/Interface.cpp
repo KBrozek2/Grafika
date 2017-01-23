@@ -146,8 +146,7 @@ char *Interface::getImage(int bMessageSize)
 				if (bMessageSize)
 				{
 					/*Sprawdza czy bmp ma wystarczajšco pikseli*/
-					if (!imgObj.isMessageFittedIn(bMessageSize, g_img))
-					{
+					if (!imgObj.isMessageFittedIn(bMessageSize, g_img)){
 						cout << "Wybrany plik bmp jest za maly by pomiescic zadana wiadomosc!" << endl;
 						delete[] g_img;
 						break;

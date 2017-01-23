@@ -16,9 +16,8 @@ vector<bool> Conversion::stringToBits(string str)
 	}
 	if (bitArray.size() > pow(2, 29))
 	{
-		cout << "Plik tekstowy jest za duzy! Program konczy dzialanie." << endl;
-		system("pause");
-		exit(0);
+		cerr << "Plik tekstowy jest za duzy! Program konczy dzialanie." << endl;
+		exit(1);
 	}
 	return bitArray;
 }

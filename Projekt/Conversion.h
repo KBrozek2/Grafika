@@ -13,8 +13,8 @@ class Conversion
 
 public:
 	vector<bool> ushortToBits(unsigned short);
-	vector<bool> stringToBits(string); //zwraca vector ze stringiem w bitach
-	vector<bool> intToBits(int); //zwraca vector<bool>(32 bit) w ktorych zapisany jest przyjmowany int 
+	vector<bool> stringToBits(string); 
+	vector<bool> intToBits(int);
 	unsigned short bitsToUShort(vector<bool>);
 	string bitsToString(vector<bool>);
 	char *stringToChar(string);
